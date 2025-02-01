@@ -9,6 +9,14 @@
   </div>
 </template>
 
+<script>
+export default {
+  components: {
+    ElementView: () => import('./views/element/ElementView.vue')
+  }
+}
+</script>
+
 <style>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
