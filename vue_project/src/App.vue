@@ -5,37 +5,21 @@
       <router-link to="/about">About</router-link>
     </nav>
     <router-view/> -->
-    <ElementView></ElementView>
+    <!-- <ElementView></ElementView> -->
+     <cat-view></cat-view>
   </div>
 </template>
 
 <script>
+import CatView from './views/catcare/CatView.vue'
 export default {
   components: {
-    ElementView: () => import('./views/element/ElementView.vue')
+    CatView
+    // ElementView: () => import('./views/element/ElementView.vue')
   }
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
 
-nav {
-  padding: 30px;
-}
-
-nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-nav a.router-link-exact-active {
-  color: #42b983;
-}
 </style>
