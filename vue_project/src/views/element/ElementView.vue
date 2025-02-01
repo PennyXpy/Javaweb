@@ -1,0 +1,42 @@
+<template>
+    <div>
+        <el-row>
+            <el-button>Default</el-button>
+            <el-button type="primary">Primary</el-button>
+            <el-button type="success">Success</el-button>
+            <el-button type="info">Info</el-button>
+            <el-button type="warning">Warning</el-button>
+            <el-button type="danger">Danger</el-button>
+        </el-row>
+
+        <el-table
+      :data="tableData"
+      style="width: 100%">
+      <el-table-column
+        prop="date"
+        label="Date"
+        width="180">
+      </el-table-column>
+      <el-table-column
+        prop="name"
+        label="Name"
+        width="180">
+      </el-table-column>
+      <el-table-column
+        prop="address"
+        label="Address">
+      </el-table-column>
+    </el-table>
+    </div>
+
+</template>
+
+<script>
+export default {
+
+}
+</script>
+
+<style>
+
+</style>
