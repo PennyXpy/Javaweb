@@ -25,7 +25,7 @@
                         </el-table-column>
                         <el-table-column prop="age" label="Age" width="120"> </el-table-column>
                         <el-table-column prop="comeintime" label="ComeInTime" width="180"> </el-table-column>
-                        <el-table-column label="操作" >
+                        <el-table-column label=" " >
                             <el-button type="primary" size="mini">Update</el-button>
                             <el-button type="danger" size="mini">Delete</el-button>
                         </el-table-column>
