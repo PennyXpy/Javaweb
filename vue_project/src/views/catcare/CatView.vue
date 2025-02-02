@@ -16,6 +16,32 @@
 
 
                 <el-main>
+                    <!-- form -->
+                    <el-form :inline="true" :model="searchForm" class="demo-form-inline">
+                        <el-form-item label="Name">
+                            <el-input v-model="searchForm.name" placeholder="Please enter cat name"></el-input>
+                        </el-form-item>
+                        <el-form-item label="Gender">
+                            <el-select v-model="searchForm.gender" placeholder="Pleaser select gender">
+                            <el-option label="Male" value="male"></el-option>
+                            <el-option label="Female" value="female"></el-option>
+                            </el-select>
+                        </el-form-item>
+                        <!-- time range select -->
+                        <el-form-item label="Time">
+                            <el-date-picker
+                                v-model="searchForm.daterange"
+                                type="daterange"
+                                range-separator="To"
+                                start-placeholder="Start date"
+                                end-placeholder="End date">
+                            </el-date-picker>
+                        </el-form-item>
+                        <el-form-item>
+                            <el-button type="primary" @click="onSubmit">Search</el-button>
+                        </el-form-item>
+                    </el-form>
+                     <!-- main -->
                     <el-table :data="tableData">
                         <el-table-column prop="name" label="Name" width="140">
                         </el-table-column>
@@ -24,7 +50,8 @@
                         <el-table-column prop="gender" label="Gender" width="140">
                         </el-table-column>
                         <el-table-column prop="age" label="Age" width="120"> </el-table-column>
-                        <el-table-column prop="comeintime" label="ComeInTime" width="180"> </el-table-column>
+                        <el-table-column prop="comeintime" label="InTime" width="180"> </el-table-column>
+                        <el-table-column prop="goouttime" label="OutTime" width="180"> </el-table-column>
                         <el-table-column label=" " >
                             <el-button type="primary" size="mini">Update</el-button>
                             <el-button type="danger" size="mini">Delete</el-button>
@@ -40,13 +67,25 @@
 export default{
     data(){
         return{
+            // form model
+            searchForm: {
+                name: '',
+                gender: '',
+                daterange: []
+            },
+            // main model
             tableData: [
-                {name: 'Tom', image: "sss", gender: 'Male', age: 2, comeintime: '2019-12-12'},
-                {name: 'Tom', image: "sss", gender: 'Male', age: 2, comeintime: '2019-12-12'},
-                {name: 'Tom', image: "sss", gender: 'Male', age: 2, comeintime: '2019-12-12'},
-                {name: 'Tom', image: "sss", gender: 'Male', age: 2, comeintime: '2019-12-12'},
-                {name: 'Tom', image: "sss", gender: 'Male', age: 2, comeintime: '2019-12-12'},
+                {name: 'Tom', image: "sss", gender: 'Male', age: 2, comeintime: '2019-12-12', goouttime: '2019-12-12'},
+                {name: 'Tom', image: "sss", gender: 'Male', age: 2, comeintime: '2019-12-12', goouttime: '2019-12-12'},
+                {name: 'Tom', image: "sss", gender: 'Male', age: 2, comeintime: '2019-12-12', goouttime: '2019-12-12'},
+                {name: 'Tom', image: "sss", gender: 'Male', age: 2, comeintime: '2019-12-12', goouttime: '2019-12-12'},
+                {name: 'Tom', image: "sss", gender: 'Male', age: 2, comeintime: '2019-12-12', goouttime: '2019-12-12'},
             ]
+        }
+    },
+    methods: {
+        onSubmit() {
+            alert('submit!');
         }
     }
 }
