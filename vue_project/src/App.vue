@@ -6,15 +6,16 @@
     </nav>
     <router-view/> -->
     <!-- <ElementView></ElementView> -->
-     <cat-view></cat-view>
+     <!-- <cat-view></cat-view> -->
+      <router-view></router-view>
   </div>
 </template>
 
 <script>
-import CatView from './views/catcare/CatView.vue'
+// import CatView from './views/catcare/CatView.vue'
 export default {
   components: {
-    CatView
+    // CatView
     // ElementView: () => import('./views/element/ElementView.vue')
   }
 }

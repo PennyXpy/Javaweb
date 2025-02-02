@@ -8,8 +8,12 @@
                     <el-menu :default-openeds="['1', '3']">
                         <el-submenu index="1">
                             <template slot="title"><i class="el-icon-message"></i>Information Management</template>
-                            <el-menu-item index="1-1">Department Management</el-menu-item>
-                            <el-menu-item index="1-2">Cat Management</el-menu-item>
+                            <el-menu-item index="1-1">
+                                <router-link to="/dept">Department Management</router-link>
+                            </el-menu-item>
+                            <el-menu-item index="1-2">
+                                <router-link to="/cat">Cat Management</router-link>
+                            </el-menu-item>
                         </el-submenu>
                     </el-menu>
                 </el-aside>
@@ -42,12 +46,18 @@
                         </el-form-item>
                     </el-form>
                      <!-- main -->
-                    <el-table :data="tableData">
+                    <el-table :data="tableData" border>
                         <el-table-column prop="name" label="Name" width="140">
                         </el-table-column>
                         <el-table-column prop="image" label="Image" width="180">
+                            <template slot-scope="scope">
+                                <img :src = "scope.row.image" width="100px" height="70px">
+                            </template>
                         </el-table-column>
-                        <el-table-column prop="gender" label="Gender" width="140">
+                        <el-table-column  label="Gender" width="140">
+                            <template slot-scope="scope">
+                                {{scope.row.gender == "1" ? "Male" : "Female"}}
+                            </template>
                         </el-table-column>
                         <el-table-column prop="age" label="Age" width="120"> </el-table-column>
                         <el-table-column prop="comeintime" label="InTime" width="180"> </el-table-column>
@@ -57,6 +67,14 @@
                             <el-button type="danger" size="mini">Delete</el-button>
                         </el-table-column>
                     </el-table>
+                    <!-- pagination -->
+                    <el-pagination
+                        background
+                        layout="total, sizes, prev, pager, next, jumper"
+                        @size-change="handleSizeChange"
+                        @current-change="handleCurrentChange" 
+                        :total="1000">
+                    </el-pagination>
                 </el-main>
             </el-container>
         </el-container>
@@ -64,6 +82,7 @@
 </template>
 
 <script>
+import axios from 'axios';
 export default{
     data(){
         return{
@@ -75,18 +94,24 @@ export default{
             },
             // main model
             tableData: [
-                {name: 'Tom', image: "sss", gender: 'Male', age: 2, comeintime: '2019-12-12', goouttime: '2019-12-12'},
-                {name: 'Tom', image: "sss", gender: 'Male', age: 2, comeintime: '2019-12-12', goouttime: '2019-12-12'},
-                {name: 'Tom', image: "sss", gender: 'Male', age: 2, comeintime: '2019-12-12', goouttime: '2019-12-12'},
-                {name: 'Tom', image: "sss", gender: 'Male', age: 2, comeintime: '2019-12-12', goouttime: '2019-12-12'},
-                {name: 'Tom', image: "sss", gender: 'Male', age: 2, comeintime: '2019-12-12', goouttime: '2019-12-12'},
             ]
         }
     },
     methods: {
         onSubmit() {
             alert('submit!');
+        },
+        handleSizeChange: function(val){
+            alert('size change' + val)
+        },
+        handleCurrentChange: function(val){
+            alert('current page change' + val)
         }
+    },
+    mounted(){
+        axios.get("https://apifoxmock.com/m1/5809093-5494141-default/catlist").then((result) => {
+            this.tableData = result.data;
+        });
     }
 }
 </script>
