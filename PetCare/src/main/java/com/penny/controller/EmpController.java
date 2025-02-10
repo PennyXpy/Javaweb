@@ -1,5 +1,6 @@
 package com.penny.controller;
 
+import com.penny.pojo.Emp;
 import com.penny.pojo.PageBean;
 import com.penny.pojo.Result;
 import com.penny.service.EmpService;
@@ -31,6 +32,13 @@ public class EmpController {
     public Result delete(@PathVariable List<Integer> ids) {
         log.info("批量删除， ids:{}", ids);
         empService.delete(ids);
+        return Result.success();
+    }
+
+    @PostMapping
+    public Result save(@RequestBody Emp emp){
+        log.info("新增员工 emp{}", emp);
+        empService.save(emp);
         return Result.success();
     }
 }

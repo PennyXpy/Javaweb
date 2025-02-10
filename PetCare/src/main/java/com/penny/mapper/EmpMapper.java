@@ -1,6 +1,7 @@
 package com.penny.mapper;
 
 import com.penny.pojo.Emp;
+import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 
@@ -19,4 +20,9 @@ public interface EmpMapper {
     public List<Emp> list(String name, Short gender, LocalDate begin, LocalDate end);
 
     void delete(List<Integer> ids);
+
+    @Insert("insert into emp(username, name, gender, image, job, entrydate, studio_id, create_time, update_time)" +
+            "values(#{username}, #{name}, #{gender}, #{image}, #{job}, #{entrydate}, #{studioId}, #{createTime}, #{updateTime})")
+    void insert(Emp emp);
+
 }
