@@ -7,7 +7,7 @@
     <div class="right-menu">
       <el-dropdown class="avatar-container" trigger="click">
         <div class="avatar-wrapper">
-          <!-- <img src="https://www.itheima.com/images/logo.png" class="user-avatar"> -->
+          <img src="https://photos.fife.usercontent.google.com/pw/AP1GczNUgu6PGJyo9Z9TWc5J8PlqaOizT207xkFO08LpewcKA9t9nnyo6WE=w1707-h1280-s-no-gm?authuser=0" class="user-avatar">
           <i class="el-icon-caret-bottom" />
         </div>
         <el-dropdown-menu slot="dropdown" class="user-dropdown">
