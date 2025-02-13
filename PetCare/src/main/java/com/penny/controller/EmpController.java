@@ -1,5 +1,6 @@
 package com.penny.controller;
 
+import com.penny.anno.Log;
 import com.penny.pojo.Emp;
 import com.penny.pojo.PageBean;
 import com.penny.pojo.Result;
@@ -28,6 +29,7 @@ public class EmpController {
         return Result.success(pageBean);
     }
 
+    @Log
     @DeleteMapping("/{ids}")
     public Result delete(@PathVariable List<Integer> ids) {
         log.info("批量删除， ids:{}", ids);

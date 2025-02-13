@@ -1,5 +1,6 @@
 package com.penny.controller;
 
+import com.penny.anno.Log;
 import com.penny.pojo.Result;
 import com.penny.pojo.Studio;
 import com.penny.service.StudioService;
@@ -20,6 +21,7 @@ public class StudioController {
     @Autowired
     private StudioService studioService;
 
+
     @GetMapping
     public Result list(){
         log.info("Search All Studio Data");
@@ -27,13 +29,15 @@ public class StudioController {
         return Result.success(studioList);
     }
 
+    @Log
     @DeleteMapping("/{id}")
     public Result delete(@PathVariable Integer id){
         log.info("Delete Studio by id: {}", id);
-        studioService.delete(id);
+        studioService.delete(id); // 删除部门数据 -- 但是员工还在绑定
         return Result.success();
     }
 
+    @Log
     @PostMapping
     public Result add(@RequestBody Studio studio){
         log.info("Add Studio: {}", studio);

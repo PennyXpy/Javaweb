@@ -22,3 +22,7 @@ aliyun:
     accessKeyId: LTAI4GCH1vX6DKqJWxd6nEuW  # 示例密钥，请替换为你的实际密钥
     accessKeySecret: yBshYweH0pqDuhCArrVHwi1BKpyqSL  # 示例密钥，请替换为你的实际密钥
     bucketName: web-tlias
+
+logging:
+  level:
+    org.springframework.jdbc.support.JdbcTransactionManager: debug
