@@ -1,25 +1,35 @@
-# Javaweb
-# Ajax
-Including ajax and enviroment install 
-ajax can send request to server and reveive the data responsed from server, 异步交换 -- it can in the condition which not refresh the whole page to update specifix section data with server.
-readystate == 4 and status == 200,请求成功
+# PetCare Management System
 
+## Introduction
+The **PetCare Management System** is a full-stack web application designed to streamline pet care services. It allows users to manage pet records, schedule appointments, track pet health, and facilitate communication between pet owners and veterinary clinics. This project is built using **Tomcat, MySQL, Servlet, Spring, SpringMVC, MyBatis, Spring Boot, and Maven**.
 
-ajax 比较繁琐 -- 现在用axios
-axios -- script 标签引入axios， then 使用axios发送请求 
+## Features
+- **User Authentication & Authorization**
+- **Pet Profile Management**
+- **Appointment Booking System**
+- **Medical History & Health Tracking**
+- **Veterinarian & Pet Owner Interaction**
+- **Notification & Reminder System**
+- **Admin Dashboard for System Management**
 
-node.js配置环境nvm
-npm install -g @vue/cli
+## Technology Stack
+- **Backend:** Spring Boot, SpringMVC, Spring, Servlet, MyBatis
+- **Frontend:** HTML, CSS, JavaScript, Vue.js (optional)
+- **Database:** MySQL
+- **Server:** Apache Tomcat
+- **Build Tool:** Maven
 
+## Installation Guide
+### Prerequisites
+Ensure the following dependencies are installed on your system:
+- JDK 11+
+- MySQL 8.0+
+- Apache Tomcat 9+
+- Maven 3+
+- Node.js & npm (if using Vue.js for frontend)
 
-vue中template 生成html代码， script 控制模版和数据来源 template中的行为和数据需要定义在script中，style相当于css样式部分
-vue中element组件 npm install element-ui@version.
-引入import ElementUI from 'element-ui'
-import 'element-ui/lib/theme-chalk/index.css'， Vue.use(ElementUI) 
-
-
-<script>
-export default {
-
-  }
-</script> -- 要export！ 
+### Backend Setup
+1. **Clone the repository:**
+   ```sh
+   git clone https://github.com/your-repository/petcare.git
+   cd petcare
